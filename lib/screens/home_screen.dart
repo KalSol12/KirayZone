@@ -10,7 +10,9 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         title: Row(
           children: [
-            CircleAvatar(backgroundImage: AssetImage('assets/profile.png')),
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/images/profile.png'),
+            ),
             SizedBox(width: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,9 +88,14 @@ class HomeScreen extends StatelessWidget {
                   'Top Property',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  'View All',
-                  style: TextStyle(color: Colors.blue, fontSize: 14),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/property-list');
+                  },
+                  child: Text(
+                    'View All',
+                    style: TextStyle(color: Colors.blue, fontSize: 14),
+                  ),
                 ),
               ],
             ),
@@ -160,7 +167,7 @@ class HomeScreen extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                   child: Image.asset(
-                    'assets/house1.jpg',
+                    'assets/images/house1.jpg',
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: 180,
